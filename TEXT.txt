@@ -1,0 +1,134 @@
+SELECT nom,annéeNaiss 
+   FROM artiste 
+   WHERE annéeNaiss  < 1950 
+   ORDER BY annéeNaiss DESC;
+
+exo2
+SELECT titre
+   FROM film
+   WHERE genre ="Drame";
+
+exo3
+SELECT nom,prénom,nomRôle
+  FROM artiste LEFT OUTER JOIN role
+  ON artiste.idArtiste = role.idActeur
+   WHERE idartiste = 62;
+
+exo4 
+SELECT artiste.*
+  FROM artiste LEFT OUTER JOIN film
+  ON artiste.idArtiste = film.idRéalisateur
+   WHERE idFilm = 77;
+
+exo5
+SELECT *
+   FROM notation
+   WHERE idFilm = 275;
+
+exo6
+SELECT artiste.*, nomRôle
+   FROM artiste LEFT OUTER JOIN role
+   ON artiste.idArtiste = role.idActeur
+   WHERE nomRôle = "Chewbacca";
+
+exo7
+SELECT *
+   FROM artiste LEFT OUTER JOIN role 
+   ON artiste.idArtiste = role.idActeur 
+   LEFT OUTER JOIN film
+   USING(idFilm)
+   WHERE nomRôle = "John McClane"
+   AND nom = 'Willis'
+   AND prénom = 'Bruce';
+
+exo8
+SELECT nom,prénom
+   FROM artiste LEFT OUTER JOIN role 
+   ON artiste.idArtiste = role.idActeur
+   LEFT OUTER JOIN film 
+   USING(idFilm)
+   WHERE titre = 'sueurs froides';
+
+exo9
+SELECT titre
+    FROM internaute LEFT OUTER JOIN notation 
+    USING(email)
+    LEFT OUTER JOIN film 
+    USING(idFilm) 
+    WHERE nom ='Nom0' 
+    AND   Prénom ='Prénom0'; 
+
+
+exo10 
+SELECT *
+    FROM artiste LEFT OUTER JOIN role 
+   ON artiste.idArtiste = role.idActeur
+    LEFT OUTER JOIN film 
+    USING(idFilm) 
+    WHERE idActeur = 85  
+     AND idRéalisateur = 510 ; 
+
+
+exo11
+SELECT *
+    FROM artiste LEFT OUTER JOIN role 
+   ON artiste.idArtiste = role.idActeur
+    LEFT OUTER JOIN film 
+    USING(idFilm) 
+    WHERE Nom = 'Allen' 
+     AND Prénom= 'Woody' ; 
+
+
+exo12 
+SELECT nom prénom,nomRôle,titre
+    FROM artiste LEFT OUTER JOIN role 
+   ON artiste.idArtiste = role.idActeur
+    LEFT OUTER JOIN film 
+    USING(idFilm) 
+    WHERE idRéalisateur = idActeur; 
+
+
+
+exo13 
+SELECT DISTINCT titre
+     FROM artiste LEFT OUTER JOIN film 
+     ON artiste.idArtiste = film.idRéalisateur 
+     LEFT OUTER JOIN role 
+     USING(idFilm) 
+     WHERE nom = 'Tarantino'
+     AND prénom ='Quentin' 
+     idRéalisateur != idActeur;
+
+
+exo14 
+SELECT nom prénom,nomRôle,titre
+    FROM artiste LEFT OUTER JOIN film 
+   ON artiste.idArtiste = film.idRéalisateur
+    LEFT OUTER JOIN role 
+    USING(idFilm) 
+    WHERE idRéalisateur = idActeur; 
+
+
+exo15 
+SELECT DISTINCT artiste. *
+FROM artiste LEFT OUTER JOIN film 
+ON artiste.idArtiste = film.idRéalisateur 
+WHERE idArtiste != 854;
+
+exo 23
+“SELECT film.titre, notemoyenne.moyenne
+FROM notemoyenne, film
+WHERE notemoyenne.titre = film.titre
+AND notemoyenne.moyenne > 7;”
+
+
+
+
+
+
+
+
+
+
+
+   
